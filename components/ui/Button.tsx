@@ -1,6 +1,8 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
+
 type ButtonVariant = "primary" | "outline" | "ghost" | "text" | "filled";
+
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,9 +14,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-white text-primary-orange hover:bg-surface-subtle focus-visible:ring-primary-orange",
+
   /** Orange background with white text — matches Figma auth CTAs (Send OTP, Verify & continue). */
   filled:
     "bg-primary-orange text-white hover:bg-[#e04d00] active:scale-[0.98] focus-visible:ring-primary-orange",
+
   outline:
     "border border-primary-orange bg-white text-primary-orange hover:bg-surface-subtle focus-visible:ring-primary-orange",
   ghost:

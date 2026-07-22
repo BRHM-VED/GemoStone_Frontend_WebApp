@@ -1,26 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
+  /* Design tokens from Figma */
+  --color-primary-orange: #ff5400;
+  --color-base-white: #ffffff;
+  --color-text-primary: #211e1a;
+  --color-text-secondary: #6b6459;
+  --color-text-muted: #a89a85;
+  --color-border-strong: #e5e0da;
+  --color-surface-neutral: #f5f1ea;
+  --color-surface-subtle: #fbf8f4;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #211e1a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-primary-orange: #ff5400;
+  --color-text-primary: #211e1a;
+  --color-text-secondary: #6b6459;
+  --color-text-muted: #a89a85;
+  --color-border-strong: #e5e0da;
+  --color-surface-neutral: #f5f1ea;
+  --color-surface-subtle: #fbf8f4;
+
+  --breakpoint-sm: 20rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 90rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Hide scrollbar for horizontal chip scroll on mobile */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

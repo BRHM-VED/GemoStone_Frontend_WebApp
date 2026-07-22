@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { isValidPhone } from "@/lib/validators";
 import { sendOtp } from "@/services/auth.service";
-import { ApiError } from "@/lib/api";
+import axios from "axios";
+// import { ApiError } from "@/lib/api";
 
 interface UsePhoneStepReturn {
   phone: string;
@@ -46,8 +47,8 @@ export function usePhoneStep(): UsePhoneStepReturn {
         await sendOtp(phone);
         onSuccess(phone);
       } catch (err) {
-        if (err instanceof ApiError) {
-          setError(err.message);
+        if (err instanceof axios.AxiosError && err.response) {
+          setError(err.response.data.message || "Something went wrong");
         } else {
           setError("Something went wrong. Please try again.");
         }
